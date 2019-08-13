@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="bson-3.11.0-beta4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../New folder/Javalib/bson-3.11.0-beta4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../New folder/Javalib/json-simple-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../New folder/Javalib/mongodb-driver-3.11.0-beta4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../New folder/Javalib/mongodb-driver-core-3.11.0-beta4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../New folder/Javalib/org.json.simple-0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

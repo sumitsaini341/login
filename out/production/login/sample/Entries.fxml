@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Entries">
+   <children>
+      <TableView fx:id="table" layoutY="55.0" prefHeight="200.0" prefWidth="676.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="cname" prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="cfname" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="cphn" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="cemail" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="cgender" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="caddress" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="czip" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="ccity" prefWidth="75.0" text="Column X" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
