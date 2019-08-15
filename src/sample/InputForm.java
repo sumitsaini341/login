@@ -70,14 +70,14 @@ public class InputForm implements Initializable {
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Confab");
             MongoCollection coll = mongoDatabase.getCollection(String.valueOf(Controller.usr2));
 
-            Document doc = new Document("Name", cname.getText())
-                    .append("Father's Name", cfname.getText())
+            Document doc = new Document("name", cname.getText())
+                    .append("father_name", cfname.getText())
                     .append("email", cemail.getText())
                     .append("gender", cgender.getValue())
                     .append("phone_number", cphn.getText())
                     .append("dob", cdob.getValue())
                     .append("address",caddress.getText())
-                    .append("Zipcode", czip.getText())
+                    .append("zipcode", czip.getText())
                     .append("city", ccity.getText())
                     .append("usr",Controller.usr2);
                      coll.insertOne(doc);
