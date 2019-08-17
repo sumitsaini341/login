@@ -148,7 +148,7 @@ public class InputForm implements Initializable {
 //      load the attendance list window
         Parent root = FXMLLoader.load(getClass().getResource("Entries.fxml"));
         primaryStage.setTitle("Entries");
-        primaryStage.setScene(new Scene(root, 747, 400));
+        primaryStage.setScene(new Scene(root, 600, 300));
         primaryStage.show();
 
     }

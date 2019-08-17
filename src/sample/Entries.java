@@ -7,7 +7,10 @@ import com.mongodb.client.MongoDatabase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -20,6 +23,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class Entries implements Initializable {
     private final static String HOST = "localhost";
@@ -62,7 +67,7 @@ Controller usr = new Controller();
     @FXML
     private Label status;
     @FXML
-    private Button addentry11;
+    private Button b1,b2;
 
 
 
@@ -78,31 +83,13 @@ Controller usr = new Controller();
     public void initialize(URL location, ResourceBundle resources) {
         table.setEditable(true);
 
-        try{
-            for(int i = 0; i < coll.count(); i++){
-                pos = i +1;
-
-                Document doc = cursor.next();
-                name1 = doc.getString("name");
-                fname = doc.getString("father_name");
-                _email = doc.getString("email");
-                _gender = doc.getString("gender");
-                pnumber = doc.getString("phone_number");
-
-                evaluee.add(new entry1(pos, fname, fname, _email, _gender, pnumber ));
-            }
-            list = FXCollections.observableArrayList(evaluee);
-
-
-        }
-        finally {
-//          close the connection
-            cursor.close();
-        }
+        getdbValue(cursor);
 
 //      call the setTable method
         setTable();
     }
+
+
 
 
     private void setTable() {
@@ -117,7 +104,81 @@ Controller usr = new Controller();
         cemail.setCellValueFactory( new PropertyValueFactory<entry1, String>("email"));
         cgender.setCellValueFactory( new PropertyValueFactory<entry1, String>("gender"));
         cphn.setCellValueFactory( new PropertyValueFactory<entry1, String>("phone_number"));
-        caddress.setCellValueFactory( new PropertyValueFactory<entry1, String>("address"));
+        caddress.setCellValueFactory( new PropertyValueFactory<entry1, String>("add1"));
+        ccity.setCellValueFactory(new PropertyValueFactory<entry1, String>("city1"));
+        czip.setCellValueFactory(new PropertyValueFactory<entry1, String>("zip1"));
         table.setItems(list);
+    }
+
+    public void delete1(){
+//      get the selected row
+        entry1 selectedItem = table.getSelectionModel().getSelectedItem();
+        if (selectedItem == null){
+//          display an error message
+            status.setText("Please select a row and perform this action again");
+        }
+        else{
+//          get the value of the selected email column
+            String email_ = selectedItem.getEmail();
+
+//          here i am using the email as my primary key to find each document to delete from the database
+            coll.deleteOne(eq("email", email_));
+
+//          call the rePopulateTable method
+            rePopulateTable();
+
+//          call the setTable method
+            setTable();
+
+//          hide the error message
+            status.setText("");
+        }
+    }
+
+    public void back1() throws Exception{
+//      get the current window
+        Stage stage = (Stage)b1.getScene().getWindow();
+
+
+//      close the current window
+        stage.close();
+
+//      load the attendance list window
+        Parent root = FXMLLoader.load(getClass().getResource("InputForm.fxml"));
+        primaryStage.setTitle("Entries");
+        primaryStage.setScene(new Scene(root, 1024, 768));
+        primaryStage.show();
+    }
+    private void rePopulateTable() {
+//      calls the find all methods from the mongodb database
+        MongoCursor<Document> cursor = coll.find().iterator();
+        evaluee.clear();
+//      clears the attend list so that the previous data won't be displayed together with this new ones on the table
+        getdbValue(cursor);
+
+    }
+
+    private void getdbValue(MongoCursor<Document> cursor) {
+        try {
+            for (int i = 0; i < coll.count(); i++) {
+                pos = i + 1;
+
+                Document doc = cursor.next();
+                name1 = doc.getString("name");
+                fname = doc.getString("father_name");
+                _email = doc.getString("email");
+                _gender = doc.getString("gender");
+                pnumber = doc.getString("phone_number");
+                add = doc.getString("address");
+                cty = doc.getString("city");
+                zip = doc.getString("zipcode");
+
+                evaluee.add(new entry1(pos, fname, fname, _email, _gender, pnumber, add, cty, zip));
+            }
+            list = FXCollections.observableArrayList(evaluee);
+        } finally {
+//          close the connection
+            cursor.close();
+        }
     }
 }

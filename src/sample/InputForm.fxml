@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.InputForm">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #313239;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InputForm">
    <children>
       <Pane prefHeight="768.0" prefWidth="512.0">
          <children>
-            <TextField fx:id="cname" layoutX="182.0" layoutY="54.0" promptText="Name" />
-            <TextField fx:id="cfname" layoutX="349.0" layoutY="54.0" promptText="Father's Name" />
-            <TextField fx:id="cphn" layoutX="182.0" layoutY="100.0" promptText="Phone No." />
-            <TextArea fx:id="caddress" layoutX="182.0" layoutY="198.0" prefHeight="90.0" prefWidth="316.0" promptText="Address" />
-            <TextField fx:id="cemail" layoutX="182.0" layoutY="143.0" promptText="Email" />
-            <DatePicker fx:id="cdob" layoutX="349.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" promptText="DOB" />
-            <TextField fx:id="ccity" layoutX="182.0" layoutY="309.0" promptText="City" />
-            <TextField fx:id="czip" layoutX="349.0" layoutY="309.0" promptText="Zip Code" />
-            <Label layoutX="230.0" layoutY="357.0" text="Left Hand" />
-            <Label layoutX="384.0" layoutY="357.0" text="Right Hand" />
+            <TextField fx:id="cname" layoutX="182.0" layoutY="54.0" promptText="Name" style="-fx-background-color: #313239;" styleClass="text-field" stylesheets="@ui.css" />
+            <TextField fx:id="cfname" layoutX="353.0" layoutY="54.0" promptText="Father's Name" style="-fx-background-color: #313239;" styleClass="text-field" stylesheets="@ui.css" />
+            <TextField fx:id="cphn" layoutX="182.0" layoutY="100.0" promptText="Phone No." style="-fx-background-color: #313239;" stylesheets="@ui.css" />
+            <TextArea fx:id="caddress" layoutX="182.0" layoutY="198.0" prefHeight="90.0" prefWidth="316.0" promptText="Address" style="-fx-background-color: #313239;" styleClass="text-field" stylesheets="@ui.css" />
+            <TextField fx:id="cemail" layoutX="182.0" layoutY="143.0" promptText="Email" style="-fx-background-color: #313239;" styleClass="text-field" stylesheets="@ui.css" />
+            <DatePicker fx:id="cdob" layoutX="349.0" layoutY="143.0" prefHeight="25.0" prefWidth="150.0" promptText="DOB" style="-fx-background-color: #313239;">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor></DatePicker>
+            <TextField fx:id="ccity" layoutX="182.0" layoutY="309.0" promptText="City" style="-fx-background-color: #313239;" stylesheets="@ui.css" />
+            <TextField fx:id="czip" layoutX="349.0" layoutY="309.0" promptText="Zip Code" style="-fx-background-color: #313239;" stylesheets="@ui.css" />
+            <Label layoutX="230.0" layoutY="357.0" text="Left Hand" textFill="WHITE" />
+            <Label layoutX="384.0" layoutY="357.0" text="Right Hand" textFill="WHITE" />
             <TextField fx:id="clh" layoutX="294.0" layoutY="353.0" prefHeight="25.0" prefWidth="37.0" />
             <TextField fx:id="crh" layoutX="461.0" layoutY="353.0" prefHeight="25.0" prefWidth="37.0" />
             <ButtonBar layoutX="162.0" layoutY="650.0" prefHeight="40.0" prefWidth="200.0">
@@ -37,11 +43,24 @@
             <ComboBox fx:id="cgender" layoutX="349.0" layoutY="100.0" prefHeight="25.0" prefWidth="149.0" promptText="Gender" />
             <Label fx:id="status" layoutX="216.0" layoutY="14.0" prefHeight="25.0" prefWidth="265.0" />
             <Label fx:id="usrlb" layoutX="181.0" layoutY="537.0" prefHeight="25.0" prefWidth="172.0" />
+            <Separator layoutX="182.0" layoutY="76.0" prefHeight="5.0" prefWidth="149.0" />
+            <Separator layoutX="353.0" layoutY="76.0" prefHeight="5.0" prefWidth="149.0" />
+            <Separator layoutX="181.0" layoutY="123.0" prefHeight="5.0" prefWidth="149.0" />
+            <Separator layoutX="182.0" layoutY="166.0" prefHeight="5.0" prefWidth="149.0" />
+            <Separator layoutX="181.0" layoutY="330.0" prefHeight="5.0" prefWidth="149.0" />
+            <Separator layoutX="349.0" layoutY="330.0" prefHeight="5.0" prefWidth="149.0" />
+            <VBox layoutX="24.0" layoutY="450.0" prefHeight="135.0" prefWidth="119.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Evaluee" />
+                  <ImageView fitHeight="150.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
          </children>
       </Pane>
       <VBox layoutX="24.0" layoutY="24.0" prefHeight="135.0" prefWidth="119.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="119.0" text="Evaluee" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Evaluee" />
+            <ImageView fitHeight="150.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
    </children>
